@@ -79,6 +79,7 @@ public class NPCManager {
 
 			for (Player player : this.plugin.getServer().getOnlinePlayers()) {
 				npc.show(player);
+				new SkinUpdater(this.plugin).update(player, 10);
 			}
 		}
 	}

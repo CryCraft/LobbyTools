@@ -21,6 +21,7 @@ public class App extends JavaPlugin {
 
 		this.getCommand("npc").setExecutor(new NPCCommand(this));
 		this.getCommand("test").setExecutor(new TestCommand(this));
+
 		this.getServer().getPluginManager().registerEvents(new OnJoinEvent(this), this);
 
 		this.npcManager.createAll();

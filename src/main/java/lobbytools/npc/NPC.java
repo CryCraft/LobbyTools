@@ -37,8 +37,6 @@ public class NPC {
 
 	private GameProfile gameProfile;
 	private EntityPlayer entityPlayer;
-	private Plugin plugin;
-
 	private String texture;
 	private String signature;
 
@@ -46,8 +44,6 @@ public class NPC {
 		this.loc = loc;
 		this.name = name;
 		this.uuid = uuid;
-		this.plugin = plugin;
-
 		this.texture = "";
 		this.signature = "";
 	}
@@ -56,7 +52,6 @@ public class NPC {
 		this.loc = loc;
 		this.name = name;
 		this.uuid = uuid;
-		this.plugin = plugin;
 		this.texture = texture;
 		this.signature = signature;
 	}
@@ -83,8 +78,6 @@ public class NPC {
 		DataWatcher watcher = this.entityPlayer.getDataWatcher();
 		watcher.set(new DataWatcherObject<Byte>(16, DataWatcherRegistry.a), new Byte((byte) 127));
 		connection.sendPacket(new PacketPlayOutEntityMetadata(this.entityPlayer.getId(), watcher, true));
-
-		removeFromTab(this.entityPlayer, connection);
 	}
 
 	public void remove(Player player) {
@@ -92,12 +85,20 @@ public class NPC {
 		connection.sendPacket(new PacketPlayOutEntityDestroy(this.entityPlayer.getId()));
 	}
 
-	private void removeFromTab(EntityPlayer entityPlayer, PlayerConnection connection) {
-		this.plugin.getServer().getScheduler().scheduleSyncDelayedTask(this.plugin, new Runnable() {
-			@Override
-			public void run() {
-				connection.sendPacket(new PacketPlayOutPlayerInfo(EnumPlayerInfoAction.REMOVE_PLAYER, entityPlayer));
-			}
-		}, 5);
+	public void run(String label, Player player) {
+		if (label.equalsIgnoreCase("INTERACT")) {
+			player.sendMessage("INTERACT");
+		} else if (label.equalsIgnoreCase("ATTACK")) {
+			player.sendMessage("ATTACK");
+		}
+	}
+
+	public void removeFromTab(Player player) {
+		PlayerConnection connection = ((CraftPlayer) player).getHandle().playerConnection;
+		connection.sendPacket(new PacketPlayOutPlayerInfo(EnumPlayerInfoAction.REMOVE_PLAYER, this.entityPlayer));
+	}
+
+	public int getEntityId() {
+		return this.entityPlayer.getId();
 	}
 }
