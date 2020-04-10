@@ -1,0 +1,12 @@
+main: lobbytools.App
+name: LobbyTools
+author: wouter173
+version: 0.1
+api-version: 1.13
+commands: 
+  npc:
+    description: "npc command"
+    usage: /<command> [create|delete|list] <name|id>
+  test:
+    description: "test command"
+    usage: /<command>
