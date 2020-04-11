@@ -6,7 +6,6 @@ import java.util.UUID;
 import org.bukkit.Location;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
-import org.bukkit.plugin.Plugin;
 
 import lobbytools.App;
 import net.md_5.bungee.api.ChatColor;
@@ -23,7 +22,7 @@ public class NPCManager {
 
 
 	//NPC FUNCTIONS
-	public void createNPC(Player player, String name, UUID uuid, Plugin plugin) {
+	public void createNPC(Player player, String name, UUID uuid, App plugin) {
 		NPC npc = new NPC(player.getLocation(), ChatColor.translateAlternateColorCodes('&', name), uuid, plugin);
 		npc.create();
 
@@ -72,8 +71,9 @@ public class NPCManager {
 			UUID uuid = UUID.fromString(config.getString("uuid"));
 			String texture = config.getString("texture");
 			String signature = config.getString("signature");
+			String interact = config.getString("interact");
 
-			NPC npc = new NPC(loc, name, uuid, plugin, texture, signature);
+			NPC npc = new NPC(loc, name, uuid, plugin, texture, signature, interact);
 			npc.create();
 			this.addNPC(npc);
 

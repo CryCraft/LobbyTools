@@ -8,7 +8,9 @@ import com.mojang.authlib.properties.Property;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
-import org.bukkit.plugin.Plugin;
+
+import lobbytools.App;
+import lobbytools.inventories.ServersGUI;
 
 import org.bukkit.craftbukkit.v1_15_R1.CraftServer;
 import org.bukkit.craftbukkit.v1_15_R1.CraftWorld;
@@ -35,25 +37,31 @@ public class NPC {
 	public String name;
 	public UUID uuid;
 
+	private App plugin;
 	private GameProfile gameProfile;
 	private EntityPlayer entityPlayer;
 	private String texture;
 	private String signature;
+	private String interact;
 
-	public NPC(Location loc, String name, UUID uuid, Plugin plugin) {
+	public NPC(Location loc, String name, UUID uuid, App plugin) {
 		this.loc = loc;
 		this.name = name;
 		this.uuid = uuid;
+		this.plugin = plugin;
 		this.texture = "";
 		this.signature = "";
+		this.interact = null;
 	}
 
-	public NPC(Location loc, String name, UUID uuid, Plugin plugin, String texture, String signature) {
+	public NPC(Location loc, String name, UUID uuid, App plugin, String texture, String signature, String interact) {
 		this.loc = loc;
 		this.name = name;
 		this.uuid = uuid;
+		this.plugin = plugin;
 		this.texture = texture;
 		this.signature = signature;
+		this.interact = interact;
 	}
 	
 	public void create() {
@@ -86,11 +94,21 @@ public class NPC {
 	}
 
 	public void run(String label, Player player) {
-		if (label.equalsIgnoreCase("INTERACT")) {
-			player.sendMessage("INTERACT");
-		} else if (label.equalsIgnoreCase("ATTACK")) {
-			player.sendMessage("ATTACK");
+		player.sendMessage(this.interact);
+		if (this.interact.equals("ServersGUI")) {
+			this.plugin.getServer().getScheduler().runTask(this.plugin, new Runnable() {
+				@Override
+				public void run() {
+					player.openInventory(ServersGUI.getServersGUI(player));
+				}
+			});
 		}
+
+		// if (label.equalsIgnoreCase("INTERACT")) {
+			
+		// } else if (label.equalsIgnoreCase("ATTACK")) {
+		// 	player.sendMessage("ATTACK");
+		// }
 	}
 
 	public void removeFromTab(Player player) {
