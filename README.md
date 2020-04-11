@@ -1,5 +1,11 @@
 # Lobbytools
 
+## TODO
+
+- [ ] Join lobby items
+- [ ] Portals, portals config
+- [ ] npc behavior enum
+
 ## Commands
 
 ```sh
