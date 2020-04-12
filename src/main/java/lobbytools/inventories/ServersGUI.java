@@ -8,8 +8,9 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 
 import lobbytools.App;
-import lobbytools.utils.SendPlayerTo;
 import net.md_5.bungee.api.ChatColor;
+import papertools.api.gui.GUI;
+import papertools.api.utils.SendPlayerTo;
 
 public class ServersGUI implements Listener {
 	

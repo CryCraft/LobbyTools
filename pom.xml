@@ -9,8 +9,6 @@
   <version>1.0-SNAPSHOT</version>
 
   <name>LobbyTools</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -38,6 +36,13 @@
       <version>1.0</version>
       <scope>system</scope>
       <systemPath>${basedir}/lib/patched_1.15.2.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>PaperTools</groupId>
+      <artifactId>papertools</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <scope>system</scope>
+      <systemPath>${basedir}/lib/PaperTools-1.0-SNAPSHOT.jar</systemPath>
     </dependency>
   </dependencies>
 

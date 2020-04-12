@@ -5,3 +5,4 @@ Makefile
 org.eclipse.*
 .project
 target/*
+.factoryPath
