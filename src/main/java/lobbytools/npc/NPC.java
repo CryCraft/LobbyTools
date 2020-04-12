@@ -51,7 +51,7 @@ public class NPC {
 		this.plugin = plugin;
 		this.texture = "";
 		this.signature = "";
-		this.interact = null;
+		this.interact = "";
 	}
 
 	public NPC(Location loc, String name, UUID uuid, App plugin, String texture, String signature, String interact) {
@@ -94,14 +94,8 @@ public class NPC {
 	}
 
 	public void run(String label, Player player) {
-		player.sendMessage(this.interact);
 		if (this.interact.equals("ServersGUI")) {
-			this.plugin.getServer().getScheduler().runTask(this.plugin, new Runnable() {
-				@Override
-				public void run() {
-					player.openInventory(ServersGUI.getServersGUI(player));
-				}
-			});
+			NPCBehavior.openGui(player, ServersGUI.getServersGUI(player), this.plugin);
 		}
 
 		// if (label.equalsIgnoreCase("INTERACT")) {
