@@ -1,15 +1,16 @@
 # Lobbytools
+Lobby plugin based on papertools
+
+## Features
+- [x] lobby items: server selector
+- [x] commands: spawn, servers
+- [x] npcs: behaviors, skins, list all, preview, hide
+- [x] portals: send players to servers via portals defined in the config
+- [x] void spawn: send players to the papertools spawn when they fall into the void
 
 ## TODO
-
-- [x] Join lobby items
-- [x] spawn command
-- [x] spawn api papertools
-- [ ] void spawn
-- [x] Permissions
 - [ ] Cosmetics
-- [x] portals
-- [x] npc behavior
+- [ ] portals reload
 
 ## Permissions
 | feature/command | permission |
@@ -21,6 +22,8 @@
 | /spawn | lobbytools.command.spawn |
 
 ## Commands
+
+### npc
 
 ```sh
 /npc list
@@ -43,9 +46,27 @@
 * hide a previewed or config npc
 * unhides on a server reload or config reload
 
+### lobbytools
+
 ```sh
-/npc reload
+/lobbytools reload
 ```
 
 * reloads the config
 * removes al previewed npcs and unhides al hidden npcs
+
+### spawn
+
+```sh
+/spawn
+```
+
+* send player to papertools spawn
+
+### servers
+
+```sh
+/servers
+```
+
+* open servers gui
