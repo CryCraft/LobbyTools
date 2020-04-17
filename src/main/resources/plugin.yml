@@ -8,9 +8,39 @@ commands:
   npc:
     description: "npc command"
     usage: /<command> [create|delete|list] <name|id>
-  test:
-    description: "test command"
-    usage: /<command>
+  lobbytools:
+    description: "lobbyTools command"
+    usage: /<command> [reload]
   servers:
     description: "servers command"
     usage: /<command>
+  spawn:
+    description: "spawn command"
+    usage: /<command>
+
+permissions:
+  lobbytools.*:
+    description: all lobbytools permissins
+    default: op
+    children:
+
+      lobbytools.overwrite:
+        default: op
+        description: overwrite lobbytools spawn
+
+      lobbytools.command.*:
+        description: all lobbytools commands permissions
+        default: op
+        children:
+          lobbytools.command.servers:
+            description: /servers command permission
+            default: op
+          lobbytools.command.lobbytools:
+            description: /lobbytools command permission
+            default: op
+          lobbytools.command.npc:
+            description: /npc command permission
+            default: op
+          lobbytools.command.spawn:
+            description: /spawn command permission
+            default: op

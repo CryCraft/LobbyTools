@@ -2,7 +2,8 @@ lib
 Makefile
 .classpath
 .DS_store
-org.eclipse.*
 .project
 target/*
 .factoryPath
+.vscode/*
+.settings/*

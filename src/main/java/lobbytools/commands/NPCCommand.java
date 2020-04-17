@@ -21,7 +21,11 @@ public class NPCCommand implements CommandExecutor {
 	}
 	
 	@Override
-	public boolean onCommand(CommandSender sender,  Command command,  String label, String[] args) {
+	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+		if (!sender.hasPermission("lobbytools.command.npc")) {
+			sender.sendMessage(ChatColor.RED + "You do not have the permission to use that command!");
+			return true;
+		}
 
 		if (sender instanceof Player) {
 			Player player = (Player) sender;
@@ -49,12 +53,6 @@ public class NPCCommand implements CommandExecutor {
 					}
 
 					player.sendMessage(ChatColor.GOLD + "---------------");
-				}
-
-				if (args[0].equalsIgnoreCase("reload")) {
-					this.plugin.reloadConfig();
-					this.plugin.npcManager.deleteAll();
-					this.plugin.npcManager.createAll();
 				}
 			}
 		}

@@ -2,9 +2,23 @@
 
 ## TODO
 
-- [ ] Join lobby items
-- [ ] Portals, portals config
-- [ ] npc behavior enum
+- [x] Join lobby items
+- [x] spawn command
+- [x] spawn api papertools
+- [ ] void spawn
+- [x] Permissions
+- [ ] Cosmetics
+- [x] portals
+- [x] npc behavior
+
+## Permissions
+| feature/command | permission |
+| --- | --- |
+| lobby inventory overwrite | lobbytools.overwrite |
+| /servers | lobbytools.command.servers |
+| /npc | lobbytools.command.npc |
+| /lobbytools | lobbytools.command.lobbytools |
+| /spawn | lobbytools.command.spawn |
 
 ## Commands
 
