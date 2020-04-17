@@ -34,11 +34,11 @@ public class ServersGUI implements Listener {
 		Inventory inventory = ServersGUI.getServersGUI(player);
 		if(event.getView().getTitle().equalsIgnoreCase(ChatColor.translateAlternateColorCodes('&', "&e&lServers"))) {
 			event.setCancelled(true);
-			if (event.getCurrentItem().getItemMeta().getDisplayName().equals(inventory.getItem(11).getItemMeta().getDisplayName())) {
+			if (GUI.compareItem(event.getCurrentItem(), inventory.getItem(11))) {
 				SendPlayerTo.server(player, "creative", this.plugin);
-			} else if (event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(inventory.getItem(13).getItemMeta().getDisplayName())) {
+			} else if (GUI.compareItem(event.getCurrentItem(), inventory.getItem(13))) {
 				player.sendMessage(ChatColor.DARK_RED + "Already connected to this server!");
-			} else if (event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(inventory.getItem(15).getItemMeta().getDisplayName())) {
+			} else if (GUI.compareItem(event.getCurrentItem(), inventory.getItem(15))) {
 				SendPlayerTo.server(player, "survival", this.plugin);
 			}
 		}

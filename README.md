@@ -10,7 +10,7 @@ Lobby plugin based on papertools
 
 ## TODO
 - [ ] Cosmetics
-- [ ] portals reload
+- [x] portals reload
 
 ## Permissions
 | feature/command | permission |

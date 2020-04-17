@@ -50,11 +50,12 @@ public class App extends JavaPlugin {
 
 		this.getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
 		
-		this.portalManager.createAllFromConfig(this.getConfig());
+		this.portalManager.createAll(this.getConfig());
 		this.npcManager.createAll();
 	}
 
 	public void onDisable() {
+		this.portalManager.removeAll();
 		this.npcManager.deleteAll();
 	}
 }
