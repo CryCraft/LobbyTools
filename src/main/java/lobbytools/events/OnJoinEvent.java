@@ -8,9 +8,6 @@ import org.bukkit.event.player.PlayerJoinEvent;
 
 import lobbytools.App;
 import lobbytools.main.utils;
-import lobbytools.npc.NPC;
-import lobbytools.npc.SkinUpdater;
-import lobbytools.packetreader.PacketReader;
 
 public class OnJoinEvent implements Listener {
 
@@ -31,16 +28,5 @@ public class OnJoinEvent implements Listener {
 		}
 
 		//cosmetics
-
-		//PacketReader
-		PacketReader pr = new PacketReader(player, this.plugin);
-		pr.inject();
-
-		//NPC
-		for (NPC npc : plugin.npcManager.getList()) {
-			npc.show(player);
-		}
-		
-		new SkinUpdater(this.plugin).update(player, 200);
 	}
 }

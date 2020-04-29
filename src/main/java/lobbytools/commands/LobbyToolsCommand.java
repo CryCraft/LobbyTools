@@ -25,10 +25,15 @@ public class LobbyToolsCommand implements CommandExecutor {
 		if (command.getName().equalsIgnoreCase("lobbytools")) {
 			if (args.length == 1) {
 				if (args[0].equalsIgnoreCase("reload")) {
-					this.plugin.npcManager.deleteAll();
-					this.plugin.reloadConfig();
-					this.plugin.npcManager.createAll();
+//					this.plugin.npcManager.deleteAll();
+//					this.plugin.portalManager.removeAll();
+//					this.plugin.reloadConfig();
+//					this.plugin.npcManager.createAll();
+//					this.plugin.portalManager.createAll(this.plugin.getConfig());
+					sender.sendMessage(ChatColor.GOLD + "lobbytools reloaded");
 				}
+			} else {
+				sender.sendMessage(ChatColor.GOLD + "you are running lobbytools " + this.plugin.getDescription().getVersion());
 			}
 		}
 		return true;

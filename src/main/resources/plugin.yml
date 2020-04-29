@@ -1,13 +1,10 @@
 main: lobbytools.App
 name: LobbyTools
 author: wouter173
-version: 0.1
+version: 1.1
 api-version: 1.13
 depend: [Papertools]
-commands: 
-  npc:
-    description: "npc command"
-    usage: /<command> [create|delete|list] <name|id>
+commands:
   lobbytools:
     description: "lobbyTools command"
     usage: /<command> [reload]
@@ -37,9 +34,6 @@ permissions:
             default: op
           lobbytools.command.lobbytools:
             description: /lobbytools command permission
-            default: op
-          lobbytools.command.npc:
-            description: /npc command permission
             default: op
           lobbytools.command.spawn:
             description: /spawn command permission

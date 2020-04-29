@@ -7,12 +7,13 @@ import org.bukkit.entity.Player;
 
 import lobbytools.App;
 import net.md_5.bungee.api.ChatColor;
+import papertools.main.Papertools;
 
 public class SpawnCommand implements CommandExecutor {
-	private App plugin;
+	private Papertools api;
 
-	public SpawnCommand(App plugin) {
-		this.plugin = plugin;
+	public SpawnCommand(Papertools api) {
+		this.api = api;
 	}
 
 	@Override
@@ -25,7 +26,7 @@ public class SpawnCommand implements CommandExecutor {
 		if (command.getName().equalsIgnoreCase("spawn")) {
 			if (sender instanceof Player) {
 				Player player = (Player) sender;
-				this.plugin.papertoolsApi.sendPlayerTo.spawn(player);
+				this.api.sendPlayerTo.spawn(player);
 			}
 		}
 		return true;

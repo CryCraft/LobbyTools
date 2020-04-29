@@ -6,7 +6,7 @@
 
   <groupId>LobbyTools</groupId>
   <artifactId>LobbyTools</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.1</version>
 
   <name>LobbyTools</name>
 
@@ -38,11 +38,11 @@
       <systemPath>${basedir}/lib/patched_1.15.2.jar</systemPath>
     </dependency>
     <dependency>
-      <groupId>PaperTools</groupId>
+      <groupId>paperTools</groupId>
       <artifactId>papertools</artifactId>
-      <version>1.0-SNAPSHOT</version>
+      <version>2.1</version>
       <scope>system</scope>
-      <systemPath>${basedir}/lib/PaperTools-1.0-SNAPSHOT.jar</systemPath>
+      <systemPath>${basedir}/lib/PaperTools-2.1.jar</systemPath>
     </dependency>
   </dependencies>
 

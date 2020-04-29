@@ -1,9 +1,6 @@
-lib
+/target/*
+/lib/*
+.factorypath
+.idea
+LobbyTools.iml
 Makefile
-.classpath
-.DS_store
-.project
-target/*
-.factoryPath
-.vscode/*
-.settings/*
